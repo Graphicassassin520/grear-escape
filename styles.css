@@ -1,0 +1,76 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+#gameContainer {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: #f0f0f0;
+    overflow: hidden;
+}
+
+#player {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    background: green;
+    transition: left 0.1s;
+}
+
+.obstacle {
+    position: absolute;
+    bottom: 10%;
+    width: 50px;
+    height: 50px;
+    background: red;
+    animation: moveObstacle 2s linear infinite;
+}
+
+.movingVertical {
+    animation: moveObstacleVertical 2s linear infinite;
+}
+
+.movingHorizontal {
+    animation: moveObstacleHorizontal 2s linear infinite;
+}
+
+@keyframes moveObstacle {
+    from { right: -50px; }
+    to { right: 100vw; }
+}
+
+@keyframes moveObstacleVertical {
+    from { bottom: 10%; }
+    to { bottom: 50%; }
+}
+
+@keyframes moveObstacleHorizontal {
+    from { left: 0%; }
+    to { left: 50%; }
+}
+
+#gameOver {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#score {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 1.5em;
+}
